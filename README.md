@@ -2,7 +2,7 @@
 
 Reproducing the bulk RNA-seq analysis from Guo et al. 2019 (*Cancer Cell*, PMID 30655535) end-to-end using Nextflow DSL2.
 
-**Status:** In progress — Phase 0 (environment setup).
+**Status:** Phase 1 in progress — pipeline revision pinning and data staging.
 
 ## Overview
 
@@ -10,9 +10,9 @@ Reproducing the bulk RNA-seq analysis from Guo et al. 2019 (*Cancer Cell*, PMID 
 - **Downstream:** Custom Nextflow DSL2 pipeline — tximport → DESeq2 → fgsea → figure recreation.
 - **Dataset:** GSE106305 — 16 RNA-seq samples, LNCaP and PC3 prostate cancer cell lines, ±hypoxia (2×2 factorial).
 
-## Why this project
+## What this project demonstrates
 
-I'm a PhD computational biologist returning to the oncology industry after a career break. This repo demonstrates that I can take a published cancer study, rebuild its analysis from raw FASTQs, and ship a reproducible pipeline. Decisions are logged in [`DECISIONS.md`](./DECISIONS.md) rather than hidden in commit messages — so a reviewer can see *why* as well as *what*.
+An end-to-end reproduction of a published cancer RNA-seq analysis: raw FASTQs through QC, quantification, differential expression, and pathway enrichment, packaged as a reproducible Nextflow pipeline. The design decisions — aligner choice, filtering thresholds, statistical model — are logged in [`DECISIONS.md`](./DECISIONS.md) with reasons, so a reviewer can see *why* each choice was made, not just *what* was run.
 
 ## Quick start (placeholder — will flesh out as pipeline stabilizes)
 
