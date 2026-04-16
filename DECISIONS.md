@@ -89,4 +89,19 @@ Phase 0 smoke test: `nextflow run nf-core/rnaseq -profile test,docker --outdir r
 
 ---
 
+## 2026-04-16 — Pin nf-core/rnaseq to v3.24.0
+
+**Decision:** Pin upstream pipeline to `nf-core/rnaseq -r 3.24.0` for all runs in this project.
+
+**Options considered:**
+- v3.14.0 (original floor referenced in project plan): requires Nextflow ≥23.04.0, uses deprecated `nf-validation@1.1.3` plugin.
+- v3.24.0 (latest stable, released 2026-04-09): requires Nextflow ≥25.04.3, uses `nf-schema@2.5.1`.
+- HEAD / `master` (unpinned): used for Phase 0 smoke test; not reproducible.
+
+**Reason:** v3.24.0 is the latest stable release and our Nextflow 25.10.4 already meets its ≥25.04.3 requirement. The Salmon pseudo-alignment path has no breaking changes between 3.14 and 3.24 — changes are QC enhancements (RustQC, Kraken), ARM compatibility fixes (relevant on M1), and the nf-validation → nf-schema plugin migration. Pinning 3.14.0 would run a deprecated plugin on a modern Nextflow, which is harder to defend than using current everything. "Latest stable at project start" is the cleanest interview answer.
+
+**Revisit if:** A post-3.24.0 patch release (3.24.1+) drops before we finish the real run — worth picking up bugfixes. Or if 3.24.0 introduces an unexpected issue with the Salmon quant outputs consumed by our downstream pipeline.
+
+---
+
 <!-- New entries go below this line, most recent at the top. -->
