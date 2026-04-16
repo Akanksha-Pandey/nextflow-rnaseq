@@ -1,0 +1,23 @@
+# Claude Code project context (personal framing, local-only)
+CLAUDE.md
+
+# Nextflow working directory (large, ephemeral)
+work/
+
+# Pipeline outputs (large, regenerable)
+results/
+
+# Raw data (symlink to external SSD)
+data/
+
+# Nextflow state files
+.nextflow*
+
+# Logs
+*.log
+
+# macOS
+.DS_Store
+
+# Editor settings
+.vscode/
